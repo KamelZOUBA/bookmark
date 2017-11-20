@@ -1,0 +1,28 @@
+<h1>Add User</h1>
+<form (submit)=addUser(user)>
+  <div>
+    <label>pseudo: </label>
+    <br/>
+    <input type="text" [(ngModel)]="user.pseudo" name="pseudo">
+  </div>
+  <div>
+    <label>email: </label>
+    <br/>
+    <input type="text" [(ngModel)]="user.email" name="email">
+  </div>
+  <div>
+    <label>password: </label>
+    <br/>
+    <input type="password" [(ngModel)]="user.password" name="password">
+  </div>
+
+  <button type="submit">Add</button>
+</form>
+
+<h1>Users List</h1>
+<ul *ngFor="let user of users">
+  <li>{{user.idUser}}</li>
+  <li>{{user.pseudo}}</li>
+  <li>{{user.email}}</li>
+  <li>{{user.password}}</li>
+</ul>
