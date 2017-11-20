@@ -6,16 +6,20 @@ import { BookmarkComponent } from './bookmark/bookmark.component';
 import {HttpClientModule} from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
+import { UserComponent } from './user/user.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BookmarkComponent
+    BookmarkComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

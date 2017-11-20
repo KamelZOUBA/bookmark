@@ -12,33 +12,16 @@ import {HttpErrorResponse} from '@angular/common/http';
   providers:  [BookmarkService]
 })
 export class BookmarkComponent implements OnInit {
-  subObservable: any;
-  errorMessage: string;
-  routeId: number;
   bookMarks: Bookmark[];
 
-  constructor(private bookmarkService: BookmarkService, private route: ActivatedRoute) {
+  constructor(private bookmarkService: BookmarkService) {
    }
 
   ngOnInit() {
-      this.bookmarkService.get('15').subscribe(
-        (observableUser) => {
-          this.bookMarks = observableUser;
-          console.log(this.bookMarks);
+      this.bookmarkService.getUserBokkmarks('15').subscribe(
+        (res) => {
+          this.bookMarks = res;
         }
-        , (err: HttpErrorResponse) => {
-          if (err.error instanceof Error) {
-            // A client-side or network error occurred. Handle it accordingly.
-            console.log('An error occurred:', err.error.message);
-            this.errorMessage = 'An error occurred: ' + err.error.message;
-          } else {
-            // The backend returned an unsuccessful response code.
-            // The response body may contain clues as to what went wrong,
-            console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
-            this.errorMessage = `Backend returned code ${err.status}, body was: ${err.error}`;
-          }
-        }
-
   );
   }
 
