@@ -20,7 +20,8 @@ export class UserService {
     );
   }
 
+  /*
   private addHeader() {
     return new HttpHeaders().set('Content-Type', 'application/json');
-  }
+  }*/
 }
