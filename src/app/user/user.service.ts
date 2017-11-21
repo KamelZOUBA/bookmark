@@ -16,8 +16,7 @@ export class UserService {
   addUser(user: User) {
      return this.http.post(
       environment.API_URL + 'user',
-      JSON.stringify(user),
-      {headers: this.addHeader()}
+      JSON.stringify(user)
     );
   }
 
