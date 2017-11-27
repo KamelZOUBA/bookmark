@@ -1,28 +1,27 @@
-<h1>Add User</h1>
-<form (submit)=addUser(user)>
+<div>
+<h1>Sign up</h1>
+<form (submit)=signUp()  #userForm="ngForm">
   <div>
-    <label>pseudo: </label>
-    <br/>
-    <input type="text" [(ngModel)]="user.pseudo" name="pseudo">
+    <label>Email </label>
+    <input type="text" [(ngModel)]="user.email" name="email" email #email="ngModel">
+    <div *ngIf ="email.hasError('email') && (email.dirty || email.touched)">email is invalid</div>
   </div>
   <div>
-    <label>email: </label>
-    <br/>
-    <input type="text" [(ngModel)]="user.email" name="email">
-  </div>
-  <div>
-    <label>password: </label>
-    <br/>
+    <label>Password </label>
     <input type="password" [(ngModel)]="user.password" name="password">
   </div>
+  <div>
+      <label>Confirm password </label>
+      <input type="password" #confirmPassword name="confirmPassword" appBlockCopypaste
+       (blur)='checkPassword(confirmPassword.value)' >
+    </div>
+  <div>
+      <label>Full name </label>
+      <input type="text" [(ngModel)]="user.pseudo" name="pseudo" required #name=ngModel>
+      <div *ngIf="name.hasError('required') && name.dirty"> Full name is required</div>
+    </div>
 
-  <button type="submit">Add</button>
+  <button type="submit" [disabled]="userForm.invalid">Sign up</button>
 </form>
 
-<h1>Users List</h1>
-<ul *ngFor="let user of users">
-  <li>{{user.idUser}}</li>
-  <li>{{user.pseudo}}</li>
-  <li>{{user.email}}</li>
-  <li>{{user.password}}</li>
-</ul>
+</div>

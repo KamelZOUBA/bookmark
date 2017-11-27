@@ -8,12 +8,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { UserComponent } from './user/user.component';
 import {FormsModule} from '@angular/forms';
+import { BlockCopypasteDirective } from './block-copypaste.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookmarkComponent,
-    UserComponent
+    UserComponent,
+    BlockCopypasteDirective
   ],
   imports: [
     BrowserModule,
