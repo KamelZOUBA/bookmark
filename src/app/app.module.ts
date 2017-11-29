@@ -7,7 +7,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { UserComponent } from './user/user.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BlockCopypasteDirective } from './block-copypaste.directive';
 
 @NgModule({
@@ -21,7 +21,8 @@ import { BlockCopypasteDirective } from './block-copypaste.directive';
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(ROUTES),
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
